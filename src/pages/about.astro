@@ -1,0 +1,43 @@
+---
+const pageTitle = "About Me"; 
+
+const identity = {
+    fN: "Topher",
+    country: "US",
+    occupation: "Student",
+    hobbies: ["Robotics", "FPV Drones", "Programming"],
+};
+
+const skills = ["HTML", "CSS", "JS", "Astro", "Rust", "C", "Java", "Kotlin"];
+
+import '../styles/global.css'; 
+
+import NavBar from '../components/NavBar.astro'; 
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<h1>{pageTitle}</h1>
+
+        <p>I'm a introductory programmer and aspiring future engineer!</p>
+
+        <p>Some of my favorite hobbies are:</p>
+        <ul>
+            {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+        </ul>
+
+        <p>I know these programming languages:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+
+        <NavBar />
+	</body>
+</html>
