@@ -1,5 +1,9 @@
 ---
-import '../styles/global.css'; 
+import '../styles/global.css';
+
+import { Image } from 'astro:assets';
+
+import Hat from '../../public/IMG_0310.jpeg'; 
 import Header from '../components/Header.astro';
 ---
 
@@ -15,8 +19,18 @@ import Header from '../components/Header.astro';
 			<Header />
 			
 			<div class="container">
-				<div class="hero">
-					<!-- Insert Picture Here -->
+				<div class="hero" id="hero">
+					<Image src={Hat} alt="Moose Hat Logo"
+						style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;"
+						sizes="100vw"
+						loading="eager"
+					/> 
+
+					<div class="hero-overlay" id="hero-overlay" />
+
+					<div class="hero-content">
+						<h1>Welcome to MooseCoding</h1>
+					</div>
 				</div>
 
 				<div class="content">
@@ -24,5 +38,16 @@ import Header from '../components/Header.astro';
 					<p>This is content</p>
 				</div>
 			</div>
+
+			<script>
+				const overlay = document.getElementById("hero-overlay");
+
+				window.addEventListener('scroll', () => {
+					const scrollY = window.scrollY;
+					const maxScroll = window.innerHeight;
+					const opacity = Math.min(scrollY/350 , 0.7);
+					overlay!!.style.background = `rgba(0,0,0,${opacity})`;
+				});
+			</script>
 		</body>
 </html>

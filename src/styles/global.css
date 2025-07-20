@@ -40,25 +40,43 @@ body {
 }
 
 .navbar a {
+    display: inline-block;
+    border: 2px solid #444; 
+    background-color: #444;
     color: #BBBBBB;
     text-decoration: none;
     transition: color 0.2s ease; 
+    border-radius: 8px;
 }
 
-.navbar a:hover {11-per
+.navbar a:hover {
     color: #00BFFF;
 }
 
 .hero {
-    background-color: #181818;
-    height: 300px;
+    position:relative;
+    height: 100vh;
     margin: 2rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #888;
+    color: #ccc;
     font-size: 1.25rem;
     border-radius: 8px;
+}
+
+.hero-overlay {
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.3); 
+    z-index: 1;
+    transition: background 0.3s ease; 
+}
+
+.hero-content {
+    position:relative;
+    text-align: center;
+    z-index: 2;
 }
 
 .content {
